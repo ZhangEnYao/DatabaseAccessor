@@ -1,0 +1,124 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+}
+
+@keyframes popup {
+    0% {transform: scale(1);}
+    38% {transform: scale(1.13);}
+    62% {transform: scale(0.77);}
+    100% {transform: scale(1);}
+}
+
+textarea {
+    resize:none;
+    background-color: transparent;
+}
+
+.input {
+    width: 100%;
+    border: 0;
+    outline: none;
+    text-align: center;
+}
+::placeholder {
+    color: rgb(158,158,158);
+}
+
+.button, .reset {
+    height: 100%;
+    width: 100%;
+    color: black;
+    background-color: rgb(158,158,158);
+    border: none;
+    border-radius: 13px;
+    transition: .13s .23;
+    font-weight: bold;
+}
+.button:hover {
+    animation: popup 0.77s;
+}
+
+.upload input {
+    display: none;
+    transition: .13s .23;
+}
+.upload div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    cursor: pointer;
+}
+.upload div:hover {
+    animation: popup 0.77s;
+}
+
+.message {
+    color: white;
+    background-color: rgb(98,98,98);
+    border-radius: 23px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.panel {
+    background-color: rgb(243,243,243);
+    box-shadow: -13px 13px 13px -13px grey;
+    border-radius: 13px;
+    margin: 13px;
+    padding: 13px;
+    transition: .13s .23s;
+}
+.panel:hover {
+    background-color: white;
+    box-shadow: none;
+    margin: 13px 13px 13px 13px;
+    padding: 23px 13px 13px 13px;
+}
+
+
+
+.container {
+    display: flex;
+}
+.item {
+    flex: 1;
+}
+
+.controller {
+    height: 100%;
+    display: flex;
+}
+.action {
+    height: 100%;
+    flex: auto;
+}
+.submit {
+    height: 100%;
+    width: 13%;
+}
+
+
+
+.title {
+    font-size: 36px;
+    text-align: center;
+}
+
+.header {
+    width: 100%;
+    color: white;
+    background-color: rgb(98,98,98);
+    border: none;
+    padding: 3px 0px 3px 0px;
+    text-align: center;
+    border-radius: 13px 13px 13px 13px;
+}

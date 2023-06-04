@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">    
+    <head>
+        <meta charset="UTF-8">
+        <title>&#128054; Database Accessor</title>
+        {% block sources %}
+        {% endblock sources %}
+    </head>
+    <body>
+        <h1 class="title">Database Accessor</h1>
+        <div class="panel">
+            <div class="items">
+                <h4 class="header">Execution</h4>
+                {% block execution %}
+                {% endblock execution %}
+            </div>
+            {% block message %}
+            {% endblock message %}
+        </div>
+        <div class="panel">
+            {% block display %}
+            {% endblock display %} 
+        </div>
+    </body>
+</html>

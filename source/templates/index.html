@@ -1,0 +1,91 @@
+{% extends "sources.html" %}
+
+
+
+{% macro input(action, placeholder, text) %}
+  {% if text %}
+  <textarea id="{{ action }}" type="text" placeholder="{{ placeholder }}" name="{{ action }}" row=13 class="input">{{ text }}</textarea>
+  {% else %}
+  <textarea id="{{ action }}" type="text" placeholder="{{ placeholder }}" name="{{ action }}" row=13 class="input"></textarea>
+  {% endif %}
+{%- endmacro %}
+
+{% macro button(submit, comfirming) %}
+  {% if comfirming == "Comfirm" %}
+  <input type="submit" class="button" value="{{ submit }}" name="{{ submit }}" onclick="return comfirm()"/>
+  {% elif comfirming == "Not Comfirm" %}
+  <input type="submit" class="button" value="{{ submit }}" name="{{ submit }}"/>
+  {% endif %}
+{%- endmacro %}
+
+
+
+{% block message %}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+      <div class="message">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+{% endblock %}
+
+{% block execution %}
+<form method="post" enctype=multipart/form-data>
+  <div>
+    <div class="controller">
+      <div class="action">
+        <div class="container">
+          <div class="item">{{ input("target_columns", column_information['columns'], column_information['necessary_columns']) }}</div>
+          <div class="item">{{ input("instances", "Please input instances...") }}</div>
+        </div>
+      </div>
+      <div class="submit">
+        <div class="container">
+          <div class="item">{{ button("Insert", "Comfirm") }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controller">
+      <div class="action">{{ input("modification", "Please input modification...") }}</div>
+      <div class="submit">{{ button("Update", "Comfirm") }}</div>
+    </div>
+
+    <div class="controller">
+      <div class="action">{{ input("condition", "Please input condition...", parameters) }}</div>
+      <div class="submit">{{ button("Delete", "Comfirm") }}</div>
+    </div>
+
+    <div class="controller">
+      <div class="action">
+        <label class="upload">
+          <input type="file" name="file_for_copy"/><div>Upload</div>
+        </label>
+      </div>
+      <div class="submit">{{ button("Copy", "Comfirm") }}</div>
+    </div>
+  </div>
+</form>
+{% endblock %}
+
+{% block display %}
+<table id="display_table" class="display">
+  <thead>
+      <tr>
+        {% for attribute in attributes %}
+        <th>{{ attribute }}</th>
+        {% endfor %}
+      </tr>
+  </thead>
+  <tbody>
+    {% for instance in dataset %}
+    <tr>
+      {% for cell in instance %}
+      <td>{{ cell }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}    
+  </tbody>
+</table>
+{% endblock %}
