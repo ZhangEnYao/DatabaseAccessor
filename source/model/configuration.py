@@ -22,6 +22,6 @@ Configurations = {
             'password',
             'public',
             'jeff',
-            '0,1,2'
+            '0'
         )
     }

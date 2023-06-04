@@ -1,4 +1,4 @@
-{% extends "sources.html" %}
+{% extends "base.html" %}
 
 
 
@@ -19,6 +19,17 @@
 {%- endmacro %}
 
 
+
+{% block sources %}
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='DataTables-1.13.4/datatables.min.css') }}">
+    <script src="{{ url_for('static', filename='jQuery-3.5.1/jquery-3.5.1.js') }}"></script>
+    <script src="{{ url_for('static', filename='DataTables-1.13.4/datatables.min.js') }}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/stylesheet.css') }}">
+    <script src="{{ url_for('static', filename='script/script.js') }}"></script>
+
+{% endblock %}
 
 {% block message %}
   {% with messages = get_flashed_messages() %}

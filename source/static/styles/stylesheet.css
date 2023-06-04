@@ -10,6 +10,13 @@
     100% {transform: scale(1);}
 }
 
+td:hover {
+    cursor: pointer;
+}
+td:active {
+    font-weight: bolder;
+}
+
 textarea {
     resize:none;
     background-color: transparent;
