@@ -11,6 +11,7 @@ class Configuration(object):
     password: str
     schema: str
     table: str
+    primary_keys: list
 
 Configurations = {    
         'database_accessor_testing_event': Configuration(
@@ -20,6 +21,7 @@ Configurations = {
             'postgres',
             'password',
             'public',
-            'jeff'
+            'jeff',
+            '0,1,2'
         )
     }

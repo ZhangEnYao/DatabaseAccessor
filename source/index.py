@@ -41,7 +41,10 @@ def index(
             'columns': f'({table_access_object.columns})',
             'necessary_columns': f'({table_access_object.necessary_columns})'
         },
-        parameters = parameters
+        parameters = None if session.get('status') else parameters,
+        primary_keys = configuration.primary_keys
     )
+
+    session['status'] = True
     
     return service
